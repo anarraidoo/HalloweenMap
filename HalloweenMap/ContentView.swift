@@ -4,18 +4,26 @@
 //
 //  Created by Anusha Narraidoo on 2022-10-08.
 //
-
+import MapKit // free kit from apple
 import SwiftUI
 
 struct ContentView: View {
+    @State var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(
+            latitude: 40.76333186741789,
+            longitude: -111.87495188310707),
+        span: MKCoordinateSpan(
+            latitudeDelta: 10,
+            longitudeDelta: 10)
+    )
+    //40.76333186741789, -111.87495188310707
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Map(coordinateRegion: $region)
+            }
+            
         }
-        .padding()
     }
 }
 
