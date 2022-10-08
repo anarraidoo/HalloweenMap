@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  HalloweenMap
+//  MapSwiftUI
 //
 //  Created by Anusha Narraidoo on 2022-10-08.
 //
