@@ -13,22 +13,39 @@ struct ContentView: View {
             latitude: 40.76333186741789,
             longitude: -111.87495188310707),
         span: MKCoordinateSpan(
-            latitudeDelta: 10,
-            longitudeDelta: 10)
+            latitudeDelta: 20,
+            longitudeDelta: 20)
     )
     //40.76333186741789, -111.87495188310707
     var body: some View {
         NavigationView {
             VStack {
                 Map(coordinateRegion: $region)
+                
+                Button(action: {
+                    withAnimation {
+                        region.span = MKCoordinateSpan(
+                            latitudeDelta: 1,
+                            longitudeDelta: 1)
+                    }
+                    
+                }, label: {
+                    Text("Zoom In")
+                        .frame(width: 100, height: 50, alignment: .center)
+                        .background(Color.orange)
+                        .cornerRadius(8)
+                        .foregroundColor(.black)
+                    
+                })
             }
             
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
+    
 }
